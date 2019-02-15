@@ -43,7 +43,7 @@ LIMIT 1;
 CREATE view invent_movie\
 SELECT Inventroy.MovieID, Movies.MovieName\
 FROM Inventory JOIN Movies\
-ON Movies.MovieID = Inventory.MovieID\
+ON Movies.MovieID = Inventory.MovieID;
 
 
 ### Create view list all movies supplier name movie_supp
@@ -51,7 +51,7 @@ ON Movies.MovieID = Inventory.MovieID\
 CREATE view movie_supp\
 SELECT Suppliers.SupplierName, MovieSupplier.MovieID\
 FROM Suppliers JOIN MovieSupplier\
-ON Suppliers.SupplierID = MovieSupplier.SupplierID\
+ON Suppliers.SupplierID = MovieSupplier.SupplierID;
 
 
 ### Create list of the movie suppliers and all the movies in the inventory using the cross product
@@ -79,7 +79,37 @@ GROUP BY SupplierName;
 ### Apply where condition after join Movies with Orders
 
 SELECT Movies.MovieName, Orders.Copies\
-FROM Movies join Orders\
-ON Movies.MovieID = Orders.MovieID\
+FROM Movies JOIN Orders\
+ON Movies.MovieID = Orders.MovieID;
 WHERE Orders.Copies > 4;
+
+## 6. Which customers rented "Fatal Attraction 1987" or rented a movie supplied by "VWS Video"?
+
+### CREATE view supplier_tape list supplier name & movies name & inventory.TapeID
+
+CREATE view supplier_tape\
+SELECT Suppliers.SupplierName, Movies.MovieName, Inventory.TapeID\
+FROM Suppliers JOIN MovieSupplier\
+ON Suppliers.SupplierID = MovieSupplier.SupplierID\
+JOIN Movies\
+ON Movies.MovieID = MoviesSupplier.MovieID\
+JOIN Inventory\
+ON Movies.MovieID = Inventory.MovieID;
+
+### CREATE view customer_rental list rental details with customer name 
+
+CREATE view customer_rental\
+SELECT Rentals.TapeID, Customers.FirstName, Customers.LastName\
+FROM Rentals JOIN Customers\
+ON Rentals.CustomerID = Customers.CustID;
+
+### EXECUTE the required select query through joining the two above views
+
+SELECT Customers.FirstName, Customers.LastName\
+FROM supplier_tape JOIN customer_rental\
+ON supplier_tape.TapeID = Rentals.TapeID\
+WHERE MovieName = "Fatal Attraction 1987"\
+OR SupplierName = "VWS Video";
+
+
 
