@@ -1,4 +1,4 @@
-#!/bin/bash       
+#!/bin/bash
 #title           :countEmployee.sh
 #description     :This script to read csv file.
 #author		 :Hany Salama
@@ -13,13 +13,16 @@ echo "running this script in $(date +%F)"
 OLDIFS=$IFS
 IFS=","
 COUNTER=0
-[ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
+#[ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 while read Name Age PhoneNumber Email Salary Department CountryCode CountryCode
 do
-	#echo "Name : $Name"
-	#echo "DOB : $Age"
-	#echo "===================="
-	COUNTER=$((COUNTER+1))
+	if [ $Name = "Name" ]
+	then
+		echo "Name : $Name"
+	else
+		echo "Name : $Name"
+		COUNTER=$((COUNTER+1))
+	fi
 done < $1
 echo "=================================="
 echo "Number of Employees: $COUNTER "
