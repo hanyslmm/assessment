@@ -9,7 +9,7 @@
 echo "hello $(whoami)"
 echo "running this script in $(date +%F)"
 
-INPUT=Employees.csv
+#INPUT=Employees.csv
 OLDIFS=$IFS
 IFS=","
 COUNTER=0
@@ -20,7 +20,7 @@ do
 	#echo "DOB : $Age"
 	#echo "===================="
 	COUNTER=$((COUNTER+1))
-done < $INPUT
+done < $1
 echo "=================================="
 echo "Number of Employees: $COUNTER "
 IFS=$OLDIFS
