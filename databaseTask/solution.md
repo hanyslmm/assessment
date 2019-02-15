@@ -6,7 +6,7 @@
 
 CREATE view movie_name as\
 SELECT MovieSupplier.SupplierID, Movies.MovieName\
-FROM MovieSupplier join Movies\
+FROM MovieSupplier JOIN Movies\
 ON MovieSupplier.MovieID = Movies.MovieID;
 
 ### Join movie_name & Supplier then execute select query
@@ -23,19 +23,44 @@ OR SupplierName  = "Video Warehouse";
 
 CREATE view tap_rental as\
 SELECT Inventory.MovieID, Rentals.Duration\
-FROM Inventory join Rentals\
+FROM Inventory JOIN Rentals\
 ON Inventory.TapeID = Rentals.TapeID;
 
 ### Join tap_rental & Movies then execute select query
 
 SELECT Movies.MovieName\
-FROM Movies join tap_rental\
+FROM Movies JOIN tap_rental\
 ON Movies.MovieID = tap_rental.MovieID\
 ORDER BY Duration\
 DESC\
 LIMIT 1;
 
 
-## 3. Which suppliers supply all the movies in the inventory? (Hint: first get a list of the movie
-suppliers and all the movies in the inventory using the cross product. Then find out which of
-these tuples are invalid.) 
+## 3. Which suppliers supply all the movies in the inventory? (Hint: first get a list of the movie suppliers and all the movies in the inventory using the cross product. Then find out which of these tuples are invalid.)
+
+### Create view list all movies inside inventory invent_movie
+
+CREATE view invent_movie\
+SELECT Inventroy.MovieID, Movies.MovieName\
+FROM Inventory JOIN Movies\
+ON Movies.MovieID = Inventory.MovieID\
+
+
+### Create view list all movies supplier name movie_supp
+
+CREATE view movie_supp\
+SELECT Suppliers.SupplierName, MovieSupplier.MovieID\
+FROM Suppliers JOIN MovieSupplier\
+ON Suppliers.SupplierID = MovieSupplier.SupplierID\
+
+
+### Create list of the movie suppliers and all the movies in the inventory using the cross product
+
+CREATE view cross_product\
+SELECT * from invent_movie CROSS JOIN movie_supp\
+
+### Execute select query which suppliers supply all the movies
+
+SELECT SupplierName from cross_product\
+WHERE MovieID IS NOT NULL;
+
