@@ -96,14 +96,14 @@ ON Movies.MovieID = MoviesSupplier.MovieID\
 JOIN Inventory\
 ON Movies.MovieID = Inventory.MovieID;
 
-### CREATE view customer_rental list rental details with customer name 
+### CREATE view \*customer_rental\* list rental details with customer name :shipit:
 
 CREATE view customer_rental\
 SELECT Rentals.TapeID, Customers.FirstName, Customers.LastName\
 FROM Rentals JOIN Customers\
 ON Rentals.CustomerID = Customers.CustID;
 
-### EXECUTE the required select query through joining the two above views
+### EXECUTE the required select query through joining the two above views :shipit:
 
 SELECT Customers.FirstName, Customers.LastName\
 FROM supplier_tape JOIN customer_rental\
@@ -111,5 +111,12 @@ ON supplier_tape.TapeID = Rentals.TapeID\
 WHERE MovieName = "Fatal Attraction 1987"\
 OR SupplierName = "VWS Video";
 
+## 8. Which customers rented movies for 5 days or more?
 
+### EXECUTE the required query through joining Rentals and Customers tables :shipit:
+
+SELECT Customers.FirstName, Customers.LastName\
+FROM Rentals JOIN Customers\
+ON Rentals.CustomerID = Customers.CustID\
+WHERE Duration >= 5;
 
