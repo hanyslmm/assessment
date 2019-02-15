@@ -2,7 +2,7 @@
 
 ## 1. Which movies are supplied by "Joe's House of Video" or "Video Warehouse"?
 
-### Create view :point_right: movie_name :shipit:
+### Create view :point_right: movie_name
 
 CREATE view movie_name as\
 SELECT MovieSupplier.SupplierID, Movies.MovieName\
@@ -111,6 +111,16 @@ ON supplier_tape.TapeID = Rentals.TapeID\
 WHERE MovieName = "Fatal Attraction 1987"\
 OR SupplierName = "VWS Video";
 
+## 7. For which movies are there more than 1 copy in our inventory? (Note that the TapeI in inventory is different for different copies of the same MovieID)
+
+### INNER join between Movies and Inventory table and aggregate :shipit:
+
+SELECT Movies.MovieName, COUNT(*) as copies\
+FROM Movies JOIN Inventory\
+ON Movies.MovieID = Inventroy.MovieID\
+GROUP BY MovieName\
+HAVING copies > 1;
+
 ## 8. Which customers rented movies for 5 days or more?
 
 ### EXECUTE the required query through joining Rentals and Customers tables :shipit:
@@ -119,7 +129,6 @@ SELECT Customers.FirstName, Customers.LastName\
 FROM Rentals JOIN Customers\
 ON Rentals.CustomerID = Customers.CustID\
 WHERE Duration >= 5;
-
 
 ## 9. Which supplier has the cheapest price for the movie "Almost Angels 1962"?
 
@@ -132,3 +141,13 @@ JOIN Movies\
 ON MovieSupplier.MovieID = Movies.MovieID\
 ORDER BY MovieSupplier.Price\
 ASC LIMIT 1;
+
+## 10. Which movies aren't in the inventory?
+
+### EXECUTE left outer join on Movies and Inventory tables :shipit:
+
+SELECT Movies.MovieName\
+FROM Movies LEFT OUTER JOIN Inventory\
+ON Movies.MovieID = Inventory.MoviesID\
+WHERE TapeID IS NULL;
+
