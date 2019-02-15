@@ -64,3 +64,14 @@ SELECT * from invent_movie CROSS JOIN movie_supp\
 SELECT SupplierName from cross_product\
 WHERE MovieID IS NOT NULL;
 
+## 4. How many movies in the inventory does each movie supplier supply? That is, for each movie supplier, calculate the number of movies it supplies that also happen to be movie in the inventory.
+
+### Aggregation through joining the two created views movie_supp and invent_movie
+
+SELECT SupplierName, Count(*) AS movieCount\
+FROM movie_supp JOIN invent_movie\
+ON movie_supp.MovieID = invent_movie.MovieID\
+GROUP BY SupplierName;
+
+
+ 
