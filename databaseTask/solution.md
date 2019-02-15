@@ -74,4 +74,12 @@ ON movie_supp.MovieID = invent_movie.MovieID\
 GROUP BY SupplierName;
 
 
- 
+## 5. Which movies have more than 4 copies been ordered? 
+
+### Apply where condition after join Movies with Orders
+
+SELECT Movies.MovieName, Orders.Copies\
+FROM Movies join Orders\
+ON Movies.MovieID = Orders.MovieID\
+WHERE Orders.Copies > 4;
+
