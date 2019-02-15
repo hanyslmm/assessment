@@ -31,4 +31,5 @@ if __name__ == '__main__':
     for x in packet:
         packet_list.append(int(x))
     x = getRepeatedNetworkTraffic(packet_list)
-    print (x)
+    for k,v in x.items():
+        print("id = {} repeated {} times".format(str(k), str(v)))
