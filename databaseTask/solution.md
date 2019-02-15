@@ -2,7 +2,7 @@
 
 ## 1. Which movies are supplied by "Joe's House of Video" or "Video Warehouse"?
 
-### Create view **movie_name**
+### Create view 'movie_name'
 
 CREATE view movie_name as\
 SELECT MovieSupplier.SupplierID, Movies.MovieName\
