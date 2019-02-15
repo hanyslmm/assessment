@@ -2,7 +2,7 @@
 
 ## 1. Which movies are supplied by "Joe's House of Video" or "Video Warehouse"?
 
-### Create view movie_name :shipit:
+### Create view :point_right: movie_name :shipit:
 
 CREATE view movie_name as\
 SELECT MovieSupplier.SupplierID, Movies.MovieName\
@@ -19,7 +19,7 @@ OR SupplierName  = "Video Warehouse";
 
 ## 2. Which movie was rented for the longest duration (by any customer)?
 
-### Create view tap_rental
+### Create view :point_right: tap_rental
 
 CREATE view tap_rental as\
 SELECT Inventory.MovieID, Rentals.Duration\
@@ -38,7 +38,7 @@ LIMIT 1;
 
 ## 3. Which suppliers supply all the movies in the inventory? (Hint: first get a list of the movie suppliers and all the movies in the inventory using the cross product. Then find out which of these tuples are invalid.)
 
-### Create view list all movies inside inventory invent_movie
+### Create view list all movies inside inventory :point_right: invent_movie
 
 CREATE view invent_movie\
 SELECT Inventroy.MovieID, Movies.MovieName\
@@ -46,7 +46,7 @@ FROM Inventory JOIN Movies\
 ON Movies.MovieID = Inventory.MovieID;
 
 
-### Create view list all movies supplier name movie_supp
+### Create view list all movies supplier name  :point_right: movie_supp
 
 CREATE view movie_supp\
 SELECT Suppliers.SupplierName, MovieSupplier.MovieID\
@@ -54,7 +54,7 @@ FROM Suppliers JOIN MovieSupplier\
 ON Suppliers.SupplierID = MovieSupplier.SupplierID;
 
 
-### Create list of the movie suppliers and all the movies in the inventory using the cross product
+### Create list of the movie suppliers and all the movies in the inventory :point_right: cross_product
 
 CREATE view cross_product\
 SELECT * from invent_movie CROSS JOIN movie_supp\
@@ -66,7 +66,7 @@ WHERE MovieID IS NOT NULL;
 
 ## 4. How many movies in the inventory does each movie supplier supply? That is, for each movie supplier, calculate the number of movies it supplies that also happen to be movie in the inventory.
 
-### Aggregation through joining the two created views movie_supp and invent_movie
+### Aggregation through joining the two created views :point_right: movie_supp and :point_right: invent_movie
 
 SELECT SupplierName, Count(*) AS movieCount\
 FROM movie_supp JOIN invent_movie\
@@ -85,7 +85,7 @@ WHERE Orders.Copies > 4;
 
 ## 6. Which customers rented "Fatal Attraction 1987" or rented a movie supplied by "VWS Video"?
 
-### CREATE view supplier_tape list supplier name & movies name & inventory.TapeID
+### CREATE view :point_right: supplier_tape list supplier name & movies name & inventory.TapeID
 
 CREATE view supplier_tape\
 SELECT Suppliers.SupplierName, Movies.MovieName, Inventory.TapeID\
@@ -96,7 +96,7 @@ ON Movies.MovieID = MoviesSupplier.MovieID\
 JOIN Inventory\
 ON Movies.MovieID = Inventory.MovieID;
 
-### CREATE view \*customer_rental\* list rental details with customer name :shipit:
+### CREATE view :point_right: customer_rental list rental details with customer name :shipit:
 
 CREATE view customer_rental\
 SELECT Rentals.TapeID, Customers.FirstName, Customers.LastName\
@@ -120,3 +120,15 @@ FROM Rentals JOIN Customers\
 ON Rentals.CustomerID = Customers.CustID\
 WHERE Duration >= 5;
 
+
+## 9. Which supplier has the cheapest price for the movie "Almost Angels 1962"?
+
+### EXECUTE the required query through joining Suppliers, MovieSupplier and Movies tables :shipit:
+
+SELECT Suppliers.SupplierName, MovieSupplier.Price\
+FROM Suppliers JOIN MovieSupplier\
+ON Suppliers.SupplierID = MovieSupplier.SupplierID\
+JOIN Movies\
+ON MovieSupplier.MovieID = Movies.MovieID\
+ORDER BY MovieSupplier.Price\
+ASC LIMIT 1;
