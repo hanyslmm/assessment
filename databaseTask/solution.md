@@ -2,16 +2,16 @@
 
 ## 1. Which movies are supplied by "Joe's House of Video" or "Video Warehouse"?
 
-### first create view movie_name
+### Create view movie_name
 
 CREATE view movie_name as\
-SELECT SupplierID, MovieName\
+SELECT MovieSupplier.SupplierID, Movies.MovieName\
 FROM MovieSupplier join Movies\
 ON MovieSupplier.MovieID = Movies.MovieID;
 
-### then join movie_name & Supplier and execute select query
+### Join movie_name & Supplier then execute select query
 
-SELECT MovieName\
+SELECT Movies.MovieName\
 FROM Suppliers JOIN movie_name\
 ON Suppliers.SupplierID = MovieSupplier.SupplierID\
 WHERE SupplierName = "Joe's House of Video"\
@@ -19,16 +19,16 @@ OR SupplierName  = "Video Warehouse";
 
 ## 2. Which movie was rented for the longest duration (by any customer)?
 
-### first create view tap_rental
+### Create view tap_rental
 
 CREATE view tap_rental as\
-SELECT MovieID, Duration\
+SELECT Inventory.MovieID, Rentals.Duration\
 FROM Inventory join Rentals\
 ON Inventory.TapeID = Rentals.TapeID;
 
-### then join tap_rental & Movies and execute select query
+### Join tap_rental & Movies then execute select query
 
-SELECT MovieName\
+SELECT Movies.MovieName\
 FROM Movies join tap_rental\
 ON Movies.MovieID = tap_rental.MovieID\
 ORDER BY Duration\
@@ -36,4 +36,6 @@ DESC\
 LIMIT 1;
 
 
- 
+## 3. Which suppliers supply all the movies in the inventory? (Hint: first get a list of the movie
+suppliers and all the movies in the inventory using the cross product. Then find out which of
+these tuples are invalid.) 
