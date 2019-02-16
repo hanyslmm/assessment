@@ -1,0 +1,23 @@
+Current Date is 17-02-2019 
+==================================
+Email address for Allen whos age is 22 is invalid kindly check -Allen@vodafone.com.eg .
+Email address for Jones whos age is 24 is invalid kindly check Jones*1@vodafone.com.eg .
+Email address for Scott whos age is 28 is invalid kindly check Scott@vodafone-2.com.eg .
+Email address for Turner whos age is 35 is invalid kindly check 35Turner@vodafone.com.eg .
+##################################
+==================================
+Current Date is 17-02-2019 
+==================================
+Email address for Allen whos age is 22 is invalid kindly check -Allen@vodafone.com.eg .
+Email address for Jones whos age is 24 is invalid kindly check Jones*1@vodafone.com.eg .
+Email address for Scott whos age is 28 is invalid kindly check Scott@vodafone-2.com.eg .
+Email address for Turner whos age is 35 is invalid kindly check 35Turner@vodafone.com.eg .
+##################################
+==================================
+Current Date is 17-02-2019 
+==================================
+Email address for Allen whos age is 22 is invalid kindly check -Allen@vodafone.com.eg .
+Email address for Jones whos age is 24 is invalid kindly check Jones*1@vodafone.com.eg .
+Email address for Scott whos age is 28 is invalid kindly check Scott@vodafone-2.com.eg .
+Email address for Turner whos age is 35 is invalid kindly check 35Turner@vodafone.com.eg .
+##################################

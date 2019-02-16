@@ -5,3 +5,49 @@ The Max Salary of employees: 5000
 The Max Salary of employees: 800 
 ==================================
 ##################################
+
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Max salary of employees is 5000     and employee name is Turner 
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Current Date is 2019-02-16 23:10
+###############################
+
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Max salary of employees is 5000     and employee name is Turner 
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Current Date is 2019-02-16 23:10
+###############################
+
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Max salary of employees is 5000     and employee name is Turner 
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Current Date is 2019-02-16 23:11
+###############################
+
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Max salary of employees is 5000 and employee name is Turner 
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Current Date is 2019-02-16 23:12
+###############################
+
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Max salary of employees is 5000 and employee name is Turner!
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Min salary of employees is 800 and employee name is Allen!
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_# 
+Current Date is 2019-02-16 23:14
+###############################
+Current Date is 16-02-2019 
+==================================
+The Max Salary of employees: 0 
+==================================
+The Max Salary of employees:  
+==================================
+##################################
+Current Date is 16-02-2019 
+==================================
+The Max Salary of employees: 5000 
+==================================
+The Max Salary of employees: 800 
+==================================
+##################################

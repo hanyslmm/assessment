@@ -28,6 +28,7 @@ do
 	fi
 
 done < $1
+echo $COUNTER
 echo "Current Date is $DATE " >> company_info/$FILE
 echo "==================================" >> company_info/$FILE
 echo "Number of Employees: $COUNTER " >> company_info/$FILE

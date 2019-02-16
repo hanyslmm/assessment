@@ -25,7 +25,6 @@ do
 	then
 		echo $Salary
 	else
-		echo $Salary
 		if [ -z $minSal ]
 		then
 			minSal=$Salary
@@ -48,5 +47,5 @@ echo "==================================" >> company_info/$FILE
 echo "The Max Salary of employees: $minSal " >> company_info/$FILE
 echo "==================================" >> company_info/$FILE
 echo "##################################" >> company_info/$FILE
-echo "############### Done check employess_age_average.txt inside company_info directory"
+echo "############### Done check technology_salaries.txt inside company_info directory"
 IFS=$OLDIFS

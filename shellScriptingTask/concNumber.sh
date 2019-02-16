@@ -21,8 +21,8 @@ PHONE=()
 # [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 while read Name Age PhoneNumber Email Salary Department CountryCode
 do
-	CODE+=$CountryCode
-	PHONE+=$PhoneNumber
+	CODE=$(( CountryCode ))
+	echo $CODE
 done < $1
 echo $CODE
 IFS=$OLDIFS
