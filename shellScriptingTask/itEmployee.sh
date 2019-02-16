@@ -4,7 +4,7 @@
 #author		 :Hany Salama
 #date            :20190315
 #version         :0.1
-#usage		 :bash countEmployee.sh file.csv
+#usage		 :bash itEmployee.sh file.csv
 #tasks		 :get number of employees in IT department and write current date and
 # the result into ‘IT_employess_count.txt’ file under company_info directory.
 #=========================================================================

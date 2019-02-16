@@ -20,7 +20,7 @@ IFS=","
 COUNTER=0
 SUMAGE=0
 # [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
-while read Name Age PhoneNumber Email Salary Department CountryCode CountryCode
+while read Name Age PhoneNumber Email Salary Department CountryCode
 do
 	if [ $Age = "Age" ]
 	then
