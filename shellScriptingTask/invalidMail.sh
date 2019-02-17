@@ -25,7 +25,7 @@ while read Name Age PhoneNumber Email Salary Department CountryCode CountryCode
 do
 if ! [[ $Name == "Name" ]]
 then
-	if [[ "$Email" =~ ^[[:alpha:]0-9._%+-]+@[[:alpha:]0-9]+\.+[[:alpha:]]+\.+[[:alpha:]] ]]
+	if [[ "$Email" =~ ^[[:alpha:]0-9._+-]+@[[:alpha:]0-9]+\.+[[:alpha:]]+\.+[[:alpha:]] ]]
 	then
 		if ! [[ ${Email:0:1} == [[:digit:]]* ]]
 		then
