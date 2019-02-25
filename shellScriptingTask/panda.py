@@ -111,11 +111,16 @@ if choice == "4":
     invalidList = [] # Append to list all invalid mail index
     rows = df.shape[0]
     rows = int(rows)
-    # READ file line by line.
+    # READ file line by line
     i_row = 0
+    pattern = re.compile(r"A-z0-9@A-z")
     while i_row < rows:
         test = df.loc[i_row, 'Email']
-        if not re.search(r"[a-z0-9._+-]"+"[@a-z0-9_+-]"+"."+"com"+"."+"[a-z]", test):
+        # Email should be of the form local@domain.com
+        # Only alphanumberic characters in the local part email address
+        # Email address can’t start with a number
+        if not re.search(r"[A-z0-9\._+-]"+r"[@A-z0-9_+-]"+r"\."+r"com"+r"\."+\
+                                                            r"[a-z]", test):
             print("invalid mail {}".format(test))
             print (i_row)
             invalidList.append(i_row)
